@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mahanaim-tts · Guion a Audio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎙️ mahanaim-tts</h1>
+    <p class="sub">Convierte un guion de podcast (con marcas) en audio de dos voces.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="toolbar">
+        <label class="btn cta" for="fileInput">📂 Cargar .txt</label>
+        <input type="file" id="fileInput" accept=".txt" hidden>
+        <button class="btn" id="btnLimpiar">🧹 Limpiar</button>
+        <button class="btn" id="btnEjemplo">✨ Cargar ejemplo (2 voces)</button>
+      </div>
+
+      <textarea id="guion" spellcheck="true" placeholder="Pega aquí el guion (texto con marcas [PAUSA 2s], (tono...), LOCUTOR=, etc.) o cárgalo con el botón…"></textarea>
+    </section>
+
+    <section class="panel">
+      <h2>⚙️ Voces del podcast</h2>
+      <div class="grid">
+        <label>🎙️ Voz del <b>Narrador</b><select id="voz1"></select></label>
+        <label>🎙️ Voz del <b>Locutor 2</b><select id="voz2"></select></label>
+      </div>
+      <div class="grid">
+        <label>Idioma / localidad <input id="vozIdioma" value="es-ES" placeholder="es-ES, es-MX…"></label>
+        <label>Velocidad <input type="range" id="velocidad" min="0.5" max="1.6" step="0.05" value="1"></label>
+        <label>Volumen <input type="range" id="volumen" min="0" max="1" step="0.05" value="1"></label>
+      </div>
+      <div class="row">
+        <label class="hint">Reglas de voz del guion: <code>LOCUTOR=Narrador</code> usa la Voz del Narrador; cualquier otro <code>LOCUTOR=…</code> (Voz2, Invitada…) usa la Voz del Locutor 2. Etiquetas y marcas no se leen en voz alta.</label>
+      </div>
+    </section>
+
+    <section class="panel botones">
+      <button class="btn big" id="btnReproducir">▶️ Reproducir en vivo</button>
+      <button class="btn big" id="btnDetener">⏹️ Detener</button>
+      <span id="estado" class="estado"></span>
+    </section>
+  </main>
+
+  <footer>
+    <p>Funciona con las voces del navegador (Web Speech API). Sin internet ni costes.
+    Elige una voz para el Narrador y otra para el Locutor 2. Los roles del guion se asignan a esas voces fijas.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

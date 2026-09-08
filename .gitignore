@@ -1,0 +1,13 @@
+# Archivos del sistema y del editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
+
+# Dependencias / carpetas temporales
+node_modules/
+dist/
+.tmp/
+
+# Entorno local
+.env.*
